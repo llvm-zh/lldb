@@ -73,42 +73,26 @@
 
 		<div id="middle">
 			<div class="post">
-				<h1 class ="postheader">Goals</h1>
+				<h1 class ="postheader"> 目标 </h1>
 				<div class="postcontent">
 
-					  <p>The current state of the art in open source debuggers are that
-					     they work in the common cases for C applications, but don't
-					     handle many "hard cases" properly.  For example, C++ expression
-					     parsing, handling overloading, templates, multi-threading, and
-					     other non-trivial scenarios all work in some base cases, but
-					     don't work reliably.</p>
+					  <p>开源调试器的现状是，能正常处理 C 应用的通用场景，但是不能恰当地处理很多“疑难问题”。比如，C++ 表达式解析，处理重载，模板，多线程和其他非凡的场景，都能应对一些基础的情况，但是并不可靠。</p>
 
-					  <p>The goal of LLDB is to provide an amazing debugging experience that "just
-					      works".  We aim to solve these long-standing problems where debuggers get
-					      confused, so that you can think about debugging your problem, not
-					      about deficiencies in the debugger.</p>
+					  <p> LLDB 的目标，是提供一个非常惊艳的“可运行”（just works）调试体验。我们计划解决那些令调试者困惑的长期存在的难题，所以你可以思考调试你的程序，而不是思考调试器的缺陷。</p>
 
-					  <p>With a long view, there is no good reason for a debugger to
-					      reinvent its own C/C++ parser, type system, know all the
-					      target calling convention details, implement its own disassembler,
-					      etc.  By using the existing libraries vended by the LLVM
-					      project, we believe that many of these problems will be defined
-					      away, and the debugger can focus on important issues like
-					      process control, efficient symbol reading and indexing, thread
-					      management, and other debugger-specific problems.</p>
+					  <p> 从长远来看，没有一个合适的理由去重新发明它自己的 C/C++ 解析器，类型系统，知道所有目标调用惯例细节，实现自己的反汇编器，等等。通过使用 LLVM 项目提供的已经存在的库，「我们相信其中的很多问题，都将得到很好的定义」，调试器可以专注于终于的问题，比如过程控制，高效的符号读取和索引，线程管理，和其他调试器相关的问题。</p>
 
-					  <p>Some more specific goals include:</p>
+					  <p> 更多特殊目标，如下：</p>
 
 					  <ul>
-					  <li>Build libraries for inclusion in IDEs, command line tools, and
-					      other analysis tools</li>
-					  <li>High performance and efficient memory use</li>
-					  <li>Extensible: Python scriptable and use a plug-in architecture</li>
-					  <li>Reuse existing compiler technology where it makes sense</li>
-					  <li>Excellent multi-threaded debugging support</li>
-					  <li>Great support for C, Objective-C and C++</li>
-					  <li>Retargetable to support multiple platforms</li>
-					  <li>Provide a base for debugger research and other innovation</li> 
+					  <li> 构建库，为包括 IDE，命令行工具和其他分析工具 </li>
+					  <li> 高性能和高效内存使用 </li>
+					  <li> 可扩展：可 Python 脚本化，使用一个插件架构 </li>
+					  <li> 复用已存在的行之有效的编译器技术 </li>
+					  <li> 卓越的多线程调试支持 </li>
+					  <li> 极好的支持 C、Objective-C 和 C++ </li>
+					  <li> 可重定目标，以支持跟多的平台 </li>
+					  <li> 为调试器研究和其他创新，提供一个良好的基础 </li> 
 					  </ul>
                 </div>
           	<div class="postfooter"></div>

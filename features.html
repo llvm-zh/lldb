@@ -73,37 +73,25 @@
 
 		<div id="middle">
 			<div class="post">
-				<h1 class ="postheader">Features</h1>
+				<h1 class ="postheader"> 特性 </h1>
 				<div class="postcontent">
-				   <p>LLDB supports a broad variety of basic debugging features such as
-				      reading DWARF, supporting step, next, finish, backtraces, etc.  Some
-				      more interested bits are:</p>
+				   <p> LLDB 支持非常多的基础调试特性，如 DWARF 读取，支持 step，next，finish 和 backtraces 等。更有趣的特性，有：</p>
 
 				   <ul>
-				       <li>Plug-in architecture for portability and extensibility:</li>
+				       <li> 致力于可移植性和可扩展性的「插件架构」：</li>
 					   <ul>
-    					   <li>Object file parsers for executable file formats. Support currently
-    					       includes Mach-O (32 and 64-bit) &amp; ELF (32-bit).</li>
-    					   <li>Object container parsers to extract object files contained within a file.
-    					       Support currently includes universal Mach-O files &amp; BSD Archives.
+    					   <li> 致力于可执行文件格式的「对象文件解析」。目前支持，包括 Mach-O (32 和 64 位) 和 ELF (32 位)。</li>
+    					   <li> 致力于提取包含在一个文件中的对象文件的「对象容器解析器。当前支持 Mach-O 通用文件和 BSD 归档。
     					       </li>
-    					   <li>Debug symbol file parsers to incrementally extract debug information from
-    					       object files. Support currently includes DWARF &amp; Mach-O symbol
-    					       tables.</li>
-    					   <li>Symbol vendor plug-ins collect data from a variety of different sources
-    					       for an executable object.</li>
-    					   <li>Disassembly plug-ins for each architecture. Support currently includes
-    					       an LLVM disassembler for <a href="http://blog.llvm.org/2010/01/x86-disassembler.html">i386, x86-64</a>
-    					       , &amp; ARM/Thumb.</li>
-    					    <li>Debugger plug-ins implement the host and target specific functions
-    					        required to debug.</li>
+    					   <li> 调试符号介意器，以增量从对象文件获取调试信息。目前支持，包括 DWARF 和 Mach-O 符号表。</li>
+    					   <li> 符号提供者插件，用于为一个可执行对象从大量不同源收集数据。</li>
+    					   <li> 反汇编插件，为每一个架构。当前支持，包括一个针对 <a href="http://blog.llvm.org/2010/01/x86-disassembler.html">i386、x86-64</a> 和 ARM/Thumb </li> 的 LLVM 反汇编器。
+    					    <li> 调试器插件，实现调试要求的主机和目标特殊化的功能。</li>
 					    </ul>
-				    <li>SWIG-generated script bridging allows Python to access and control the
-				        public API of the debugger library.</li>
-				    <li>A remote protocol server, debugserver, implements Mac OS X debugging on
-				        i386 and x86-64.</li>
-				    <li>A command line debugger - the lldb executable itself.</li>
-				    <li>A framework API to the library.</li>
+				    <li> SWIG 生成的脚本绑定，允许 Python 访问和控制调试器库开放 API 。</li>
+				    <li> 一个远程协议服务器，debugserver，实现 386 和 x86-64 上 Mac OS X 调试。</li>
+				    <li> 一个命令行调试器 —— lldb 可执行程序。</li>
+				    <li> 针对库的一个框架 API 库。</li>
 				   </ul>
 				</div>
 				<div class="postfooter"></div>
