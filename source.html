@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Accessing LLDB Sources</title>
+</head>
+
+<body>
+	<div class="www_title">
+		The <strong>LLDB</strong> Debugger
+	</div>
+	
+<div id="container">
+	<div id="content">
+		
+	        
+<div id="left">
+  <div class="urbangreymenu">
+    <h1 class="headerbar">Goals and Status</h1>
+    <ul>
+      <li><a href="/index.html">About</a></li>
+      <li><a href="http://blog.llvm.org/search/label/LLDB">Blog</a></li>
+      <li><a href="/goals.html">Goals</a></li>
+      <li><a href="/features.html">Features</a></li>
+      <li><a href="/status.html">Status</a></li>
+    </ul>
+  </div>
+  <div class="menu">
+    <div class="urbangreymenu">
+      <h1 class="headerbar">Use and Extension</h1>
+      <ul>
+        <li><a href="/tutorial.html">Tutorial</a></li>
+        <li><a href="/lldb-gdb.html">GDB and LLDB command examples</a></li>
+        <li><a href="/formats.html">Frame and Thread Formatting</a></li>
+        <li><a href="/symbolication.html">Symbolication</a></li>
+        <li><a href="/varformats.html">Variable Formatting</a></li>
+        <li><a href="/python-reference.html">Python Reference</a></li>
+        <li><a href="/scripting.html">Python Example</a></li>
+        <li><a href="/symbols.html">Symbols on Mac OS X</a></li>
+        <li><a href="/remote.html">Remote debugging</a></li>
+        <li><a href="/troubleshooting.html">Troubleshooting</a></li>
+        <li><a href="/architecture/index.html">Architecture</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="menu">
+    <div class="urbangreymenu">
+      <h1 class="headerbar">Mailing&nbsp;Lists</h1>
+      <ul>
+        <li><a href="http://lists.llvm.org/mailman/listinfo/lldb-dev">lldb-dev</a></li>
+        <li><a href="http://lists.llvm.org/mailman/listinfo/lldb-commits">lldb-commits</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="menu">
+    <div class="urbangreymenu">
+    <h1 class="headerbar">Resources</h1>
+    <ul>
+      <li><a href="/download.html">Download</a></li>
+      <li><a href="/python_reference/index.html">Python API Documentation</a></li>
+      <li><a href="/cpp_reference/html/index.html">C++ API Documentation</a></li>
+      <li><a href="/source.html">Source</a></li>
+      <li><a href="/build.html">Build</a></li>
+      <li><a href="/test.html">Test</a></li>
+      <li><a href="/SB-api-coding-rules.html">SB API Coding Rules</a></li>
+      <li><a href="http://llvm.org/bugs">Bug Reports</a></li>
+      <li><a href="http://llvm.org/svn/llvm-project/lldb/trunk">Browse SVN</a></li>
+      <li><a href="http://llvm.org/viewvc/llvm-project/lldb/trunk">Browse ViewVC</a></li>
+    </ul>
+    </div>
+  </div>
+</div>
+
+		<div id="middle">
+			<div class="post">
+				<h1 class ="postheader">Checking out LLDB sources</h1>
+        <div class="postcontent">
+          <p>Refer to the <a href="http://llvm.org/docs/GettingStarted.html#getting-started-with-llvm">LLVM Getting Started Guide</a>
+             for general instructions on how to check out source.  Note that LLDB depends on having a working checkout of LLVM
+             and Clang, so the first step is to download LLVM and Clang sources as described at the above URL.  Then you can
+             additionally download the LLDB sources from the following repository URLs.</p>
+          <p><b>SVN Repository</b>: http://llvm.org/svn/llvm-project/lldb/trunk </p>
+          <p><b>Git Clone</b>: http://llvm.org/git/lldb.git </p>
+          <p>
+            For non-Mac platforms, and for MacOSX building with CMake (not Xcode), you should check out your sources to adhere to
+            the following directory structure:
+            <pre><tt>  
+                  llvm
+                  |
+                  `-- tools
+                      |
+                      +-- clang
+                      |
+                      `-- lldb
+                </tt></pre>
+          </p>
+          <p>
+            For MacOSX building from Xcode, simply checkout LLDB and then build from Xcode.  The Xcode project will
+            automatically detect that it is a fresh checkout, and checkout LLVM and clang automatically.  Unlike other
+            platforms / build systems, it will use the following directory structure.
+            <pre><tt>  
+                  lldb
+                  |
+                  `-- llvm
+                      |
+                      +-- tools
+                          |
+                          `-- clang
+                </tt>
+            </pre>
+            So updating your checkout will consist of updating lldb, llvm, and clang in these locations.
+          </p>
+          <p>
+            Refer to the <a href="build.html">Build Instructions</a> for more detailed instructions on how to build for a particular
+            platform / build system combination.
+          </p>
+        </div>
+			</div>
+			<div class="post">
+				<h1 class ="postheader">Contributing to LLDB</h1>
+				<div class="postcontent">
+          <p>
+            Please refer to the <a href="http://llvm.org/docs/DeveloperPolicy.html">LLVM Developer Policy</a>
+            for information about authoring and uploading a patch.  LLDB differs from the LLVM Developer Policy in
+            the following respects.
+            <ul>
+              <li>
+                Test infrastructure.  It is still important to submit tests with your patches, but LLDB uses a different
+                system for tests.  Refer to the lldb/test folder on disk for examples of how to write tests.
+              </li>
+            </ul>
+            For anything not explicitly listed here, assume that LLDB follows the LLVM policy.
+          </p>
+        </div>
+				<div class="postfooter"></div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
