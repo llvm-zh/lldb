@@ -73,114 +73,88 @@
 
 		<div id="middle">
 			<div class="post">
-				<h1 class ="postheader">What is LLDB?</h1>
+				<h1 class ="postheader"> LLDB 是什么?</h1>
 				<div class="postcontent">
-                    <p>LLDB is a next generation, high-performance debugger. It is built as a set
-                        of reusable components which highly leverage existing libraries in the
-                        larger LLVM Project, such as the Clang expression parser and LLVM
-                        disassembler.</p>
-                    <p>LLDB is the default debugger in Xcode on Mac OS X and supports
-                        debugging C, Objective-C and C++ on the desktop and iOS devices and simulator.</p>
+                    <p> LLDB 是一个下一代，高性能的调试器。它被构建为一个可复用的组件集，高度使用了更大的 LLVM 项目中已存在的库，比如 Clang 表达式解析器和 LLVM 反汇编器。</p>
+                    <p> LLDB 是 Mac OS X 上 Xcode 默认的调试器，支持在桌面电脑、iSO 设备和模拟器上调试 C、Objective-C 和 C++ 。</p>
 
-                    <p>All of the code in the LLDB project is available under the standard
+                    <p> LLDB 项目所有的代码，可在
                         <a href="http://llvm.org/docs/DeveloperPolicy.html#license">LLVM
-                        License</a>, an open source "BSD-style" license.</p>
+                        许可</a> 标准下获取, 这是一个开源 "BSD-style" 许可证。</p>
                 </div>
     			<div class="postfooter"></div>
 			</div>
 
 			<div class="post">
-				<h1 class ="postheader">Why a new debugger?</h1>
+				<h1 class ="postheader"> 为什么是一个新的调试器? </h1>
 				<div class="postcontent">
-					  <p>In order to achieve our goals we decided to start with a fresh architecture
-					     that would support modern multi-threaded programs, handle debugging symbols
-					     in an efficient manner, use compiler based code knowledge and have plug-in
-					     support for functionality and extensions. Additionally we want the debugger
-					     capabilities to be available to other analysis tools, be they scripts or
-					     compiled programs, without requiring them to be GPL.</p>
+					  <p> 为了达成我们的目标，我们决定从一个崭新的架构开始，将支持现代多线程程序，通过高效的手段处理调试符号，使用基于编译器的代码知识，拥有插件以支持功能和扩展。加之，我们希望这个调试器的功能对于其他的分析工具也是可用的，如脚本或编译后的程序，而无需要求这些工具都是 GPL 授权（暗指 GCC）。</p>
 				</div>
 				<div class="postfooter"></div>
 			</div>
 
 			<div class="post">
-				<h1 class ="postheader">Compiler Integration Benefits</h1>
+				<h1 class ="postheader"> 编译器整合的好处 </h1>
 				<div class="postcontent">
-						<p>LLDB currently converts debug information into clang types so that
-						it can leverage the clang compiler infrastructure.
-						This allows LLDB to support the latest C, C++, Objective C and Objective C++
-						language features and runtimes in expressions without having to reimplement <b>any</b> 
-						of this functionality. It also leverages the compiler to take care of all ABI
-						details when making functions calls for expressions, when disassembling
-						instructions and extracting instruction details, and much more. 
-				   	<p>The major benefits include:</p>
+						<p> LLDB 当前将调试信息转为 clang 类型，所以它可以使用 clang 编译器基础设施。这允许 LLDB 支持表达式中最新的 C 、C++ 、Objective C 和 Objective C++ 语言特性和运行时，而无需重新实现<b>任何</b>相关功能。它同时利用这个编译器（clang），仔细处理所有 ABI 的细节，当为表达式生成函数调用时，反汇编指令时，和获取指令细节时，等等。 
+				   	<p> 主要好处，包括：</p>
 				   	<ul>
-					   	<li>Up to date language support for C, C++, Objective C</li>
-					   	<li>Multi-line expressions that can declare local variables and types</li>
-					   	<li>Utilize the JIT for expressions when supported</li>
-					   	<li>Evaluate expression Intermediate Representation (IR) when JIT can't be used</li>
+					   	<li> 最新的 C 、C++ 、Objective C 语言支持 </li>
+					   	<li> 多行表达式，可以声明局部变量和类型 </li>
+					   	<li> 为表达式利用 JIT，当被支持时 </li>
+					   	<li> 当 JIT 不能使用时，评估表达式的中间代码表示（IR）</li>
 				    </ul>
 				</div>
 			</div>
 
 			<div class="post">
-				<h1 class ="postheader">Reusability</h1>
+				<h1 class ="postheader"> 可重用性 </h1>
 				<div class="postcontent">
-				   	<p>The LLDB debugger APIs are exposed as a C++ object oriented interface in a shared library. 
-					The <b>lldb</b> command line tool links to, and uses this public API. On Mac OS X the shared library
-					is exposed as a framework named <b>LLDB.framework</b>, and unix systems expose it as <b>lldb.so</b>.
-					The entire API is also then exposed through Python script bindings which allow the API to be used
-					within the LLDB embedded script interpreter, and also in any python script that loads the <b>lldb.py</b>
-					module in standard python script files. See the <a href="python-reference.html">Python Reference</a> page for more details on how 
-					and where Python can be used with the LLDB API.</p>
-					<p>Sharing the LLDB API allows LLDB to not only be used for debugging, but also for symbolication,
-						disassembly, object and symbol file introspection, and much more.
+				   	<p> LLDB 调试器的 APIs 被作为一个 C++ 面向对象接口暴露，在一个共享库中。<b>lldb</b> 命令行工具工具连接，和使用这个开放 API。在 Mac OS X 这个共享库作为一个名为 <b>LLDB.framework</b> 的框架暴露，unix 系统通过 <b>lldb.so</b> 暴露。整个 API 还通过 Python 脚本绑定进行暴露，这允许 API 在 LLDB 嵌入式脚本解析器中使用，以及在加载了 <b>lldb.py</b> 模块的任何标准 Python 脚本文件。浏览 <a href="python-reference.html"> Python 参考 </a> 了解如何和何处 Python 可以通过 LLDB API 被使用相关的详细信息。</p>
+					<p> 共享 LLDB API 不仅允许在调试中被使用 LLDB ，还可以在符号表现，反汇编，对象和符号文件反省（introspection）等地方使用。
 				</div>
 			</div>
 
 			<div class="post">
-				<h1 class ="postheader">Platform Support</h1>
+				<h1 class ="postheader"> 平台支持 </h1>
 				<div class="postcontent">
 
-				   	<p>LLDB is known to work on the following platforms, but ports to new
-				       platforms are welcome:</p>
+				   	<p> LLDB 目前支持以下平台, 但是针对新平台的移植也是很欢迎的：</p>
 				   	<ul>
-					   	<li>Mac OS X desktop user space debugging for i386 and x86-64</li>
-					   	<li>iOS simulator debugging on i386</li>
-					   	<li>iOS device debugging on ARM</li>
-					   	<li>Linux local user-space debugging for i386 and x86-64</li>
-					   	<li>FreeBSD local user-space debugging for i386 and x86-64</li>
-					   	<li>Windows local user-space debugging for i386 (*)</li>
+					   	<li> Mac OS X i386 和 x86-64 桌面用户空间调试 </li>
+					   	<li> i386 iOS 模拟器调试 </li>
+					   	<li> ARM iOS 设备调试 </li>
+					   	<li> Linux i386 和 x86-64 本地用户空间调试 </li>
+					   	<li> FreeBSD i386 和 x86-64 本地用户空间调试 </li>
+					   	<li> Windows i386 (*) 本地用户空间调试 </li>
 				    </ul>
-				    <p>(*) Support for Windows is under active development.  Basic functionality
-				       is expected to work, with functionality improving rapidly.</p>
+				    <p> (*) Windows 的支持正在开发当中。基础功能已经正常运作，伴随快速功能改进。</p>
 				</div>
 				<div class="postfooter"></div>
 			</div>
 
 
 			<div class="post">
-				<h1 class ="postheader">Get it and get involved!</h1>
+				<h1 class ="postheader"> 获取和参与 </h1>
 				<div class="postcontent">
 
-				    <p>To check out the code, use:</p>
+				    <p> 检出代码，使用：</p>
 
 				    <ul>
-				        <li>svn co http://llvm.org/svn/llvm-project/lldb/trunk lldb</li>
+				        <li> svn co http://llvm.org/svn/llvm-project/lldb/trunk lldb </li>
 				    </ul>
 
-				    <p>Note that LLDB generally builds from top-of-trunk</p>
+				    <p> 备注：LLDB 通常用最新的 trunk 构建：</p>
 						<ul>
-								<li>On Mac OS X with Xcode</li>
-								<li>On Linux and FreeBSD (with clang and libstdc++/libc++)</li>
-								<li>On NetBSD (with GCC and clang and libstdc++/libc++)</li>
-								<li>On Windows with VS 2012 or higher using CMake</li>
+								<li> Mac OS X 上用 Xcode</li>
+								<li> Linux 和 FreeBSD 上用 clang 和 libstdc++/libc++ </l i>
+								<li> NetBSD 上用 GCC 和 clang 以及 libstdc++/libc++ </li>
+								<li> Windows 上用 VS 2012 或 更高版本 使用 CMake </li>
 						</ul>
-						<p>See the <a href="build.html">LLDB Build Page</a> for platform-specific build instructions.</p>
-				    <p>Discussions about LLDB should go to the <a href="http://lists.llvm.org/mailman/listinfo/lldb-dev">lldb-dev</a> mailing
-				        list.  Commit messages for the lldb SVN module are automatically sent to the
+						<p> 浏览 <a href="build.html"> LLDB 构建页面 </a> 获取平台相关的构建指令。</p>
+				    <p> 讨论 LLDB 应当去 <a href="http://lists.llvm.org/mailman/listinfo/lldb-dev">lldb-dev</a> 邮件列表。提交 lldb SVN 模块的消息会自动发送到
 				        <a  href="http://lists.llvm.org/mailman/listinfo/lldb-commits">lldb-commits</a>
-				        mailing list, and this is also the preferred mailing list for patch
-				        submissions.</p>
+				        邮件列表，这也是补丁提交的首选邮件列表。</p>
 			    </div>
 				<div class="postfooter"></div>
 			</div>
