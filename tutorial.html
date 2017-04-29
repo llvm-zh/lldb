@@ -73,63 +73,42 @@
 
 		<div id="middle">
 			<div class="post">
-				<h1 class ="postheader">Getting Started</h1>
+				<h1 class ="postheader"> 快速上手 </h1>
 				<div class="postcontent">
 
-                    <p>Here's a short precis of how to run lldb if you are familiar with the gdb command set.
-                        We will start with some details on lldb command structure and syntax to help orient you.</p>
-
+                    <p> 这是关于如何运行 lldb 的一个简短部分，如果你熟悉 gdb 命令集。我们将从 lldb 命令结构和语法的部分细节开始，以便适应你。</p>
 				</div>
 				<div class="postfooter"></div>
 
     			<div class="post">
-    				<h1 class ="postheader">Command Structure</h1>
+    				<h1 class ="postheader"> 命令结构 </h1>
     				<div class="postcontent">
 
-				   <p>Unlike gdb's command set, which is rather free-form, we tried to make
-                   the lldb command syntax fairly structured.  The commands are all of the
-                   form:</p>
+				   <p> 不同于 gdb 的命令集, 其形式非常自由（随意）, 我们尽量让 lldb 命令语法相当地结构化。所有的命令都是这个形式：</p>
 
                    <code color=#ff0000>
                    &lt;noun&gt; &lt;verb&gt; [-options [option-value]] [argument [argument...]]
                    </code>
 
-                   <p>The command line parsing is done before command execution, so it is
-                   uniform across all the commands.  The command syntax for basic commands is very simple,
-                   arguments, options and option values are all white-space
-                   separated, and double-quotes are used to protect white-spaces in an argument.  
-                   If you need to put a backslash or double-quote character
-                   in an argument you back-slash it in the argument.  That makes the
-                   command syntax more regular, but it also means you may have to
-                   quote some arguments in lldb that you wouldn't in gdb.</p>
+                   <p> 命令行解析在命令执行前完成，所以这是所有命令的统一形式。基础命令的语法非常简单，「选择项」和「选项值」是空格分隔，「双引号」用于保护参数中的空格。如果你需要将一个「反斜杠」或「双引号」字符放到一个参数中，需要用「反斜杠」进行转义。这样使得命令语法更常规（普通），但也意味着在 lldb 中你可能不得不引用一些参数，而在 gdb 中是没必要的。</p>
 
-                   <p>Options can be placed anywhere on the command line, but if the arguments
-                   begin with a "<code>-</code>" then you have to tell lldb that you're done with options
-                   for the current command by adding an option termination: "<code>--</code>"
-                   So for instance if you want to launch a process and give the "process launch" command 
-                   the "<code>--stop-at-entry</code>" option, yet you want the
-                   process you are about to launch to be launched with the arguments 
-                   "<code>-program_arg value</code>", you would type:</p>
+                   <p>「选择项」可以在命令行的任何位置，但是如果「选项」由 "<code>-</code>" 开始，此时必须通过「选项终止」 "<code>--</code>" 告诉 lldb 当前的命令行的「选择项」已经结束。所以，比如你想启动一个进行，给 “process launch” 命令 "<code>--stop-at-entry</code>" 选项，同时设置启动参数 "<code>-program_arg value</code>" ，那么你应当输入：</p><p>
 
                    <code>
                        (lldb) process launch --stop-at-entry -- -program_arg value
-                   </code>
+                   </code></p>
 
-                   <p>We also tried to reduce the number of special purpose argument
-                   parsers, which sometimes forces the user to be a little more explicit
-                   about stating their intentions.  The first instance you'll note of
-                   this is the breakpoint command.  In gdb, to set a breakpoint, you
-                   might enter</p>
-
+                   <p> 我们也尽量减少特殊目的解析器的数量，这样有时「强制用户更加明确说明其意图」。你将看到的第一个此类示例为 breakpoint 命令。在 gdb 下，设置一个断点，你可能输入：</p>
+                   <p>
                    <code>
                        (gdb) break foo.c:12
-                   </code>
-                   <p>to break at line 12 of foo.c, and:</p>
+                   </code></p>
+                   <p> 在 foo.c 文件第 12 行中断，还有：</p>
                    <code>
                        (gdb) break foo
                    </code>
 
-                   <p>to break at the function <code>foo</code>.  As time went on, the parser that tells <code>foo.c:12</code>
+                   <p> 在 <code>foo</code> 函数处中断。 As time went on, the parser that tells <code>foo.c:12</code>
                    from <code>foo</code> from <code>foo.c::foo</code> (which means the function foo in the file
                    foo.c) got more and more complex and bizarre, and especially in C++
                    there are times where there's really no way to specify the function
